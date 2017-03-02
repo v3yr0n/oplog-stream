@@ -1,28 +1,24 @@
 {
-  "name": "oplog-stream",
-  "version": "0.0.6",
-  "description": "MongoDB oplog stream wrapper",
+  "name": "veyron-oplog-stream",
+  "version": "1.0.1",
+  "description": "MongoDB oplog stream wrapper to be used as a starting point for a sync system",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Juha Lindstedt",
-  "license": "ISC",
-  "dependencies": {
-    "mongodb": "^2.0.45"
-  },
-  "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/pakastin/oplog-stream"
+    "url": "git+https://github.com/v3yr0n/oplog-stream.git"
   },
   "keywords": [
-    "mongodb",
     "oplog",
-    "stream"
+    "oplog-stream",
+    "mongodb"
   ],
+  "author": "v3yr0n",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pakastin/oplog-stream/issues"
+    "url": "https://github.com/v3yr0n/oplog-stream/issues"
   },
-  "homepage": "https://github.com/pakastin/oplog-stream"
+  "homepage": "https://github.com/v3yr0n/oplog-stream#readme"
 }
