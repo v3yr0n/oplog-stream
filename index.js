@@ -46,7 +46,8 @@ module.exports = class OplogStream {
      */
     syncSince(since, callback, filter = {}){
       this._connection((oplog)=>{
-        var timestamp = MongoDB.Timestamp(0, (since / 1000 | 0))
+        //var timestamp = MongoDB.Timestamp(0, (since / 1000 | 0))
+        var timestamp = MongoDB.Timestamp.fromString(since)
         var allFilters = Object.assign(filter, {ts: {$gt: timestamp}});
         let stream = this._createStream(oplog, allFilters, false);
         callback(stream)
@@ -75,7 +76,9 @@ module.exports = class OplogStream {
      */
     syncSinceAndStream(since, callback, filter = {}){
       this._connection((oplog)=>{
-        var timestamp = MongoDB.Timestamp(0, (since / 1000 | 0))
+        //var timestamp = MongoDB.Timestamp(0, (since / 1000 | 0))\
+        var timestamp = MongoDB.Timestamp.fromString(since)
+        console.log("syncing since:", timestamp);
         var allFilters = Object.assign(filter, {ts: {$gt: timestamp}});
         let stream = this._createStream(oplog, allFilters);
         callback(stream)
@@ -90,10 +93,19 @@ module.exports = class OplogStream {
       this._connection((oplog)=>{
         var now = Date.now()
         var timestamp = MongoDB.Timestamp(0, (now / 1000 | 0))
-        var allFilters = Object.assign(filter, {ts: {$gt: timestamp}});
+        var allFilters = Object.assign({ts: {$gt: timestamp}}, filter);
         let stream = this._createStream(oplog, allFilters);
 
         callback(stream)
+      });
+    }
+
+    saveOplog(callback, data){
+      this._connection((oplog)=>{
+        console.log('trying to save');
+        oplog.save(data);
+        console.log('saved?');
+        //callback(stream)
       });
     }
 
@@ -105,19 +117,20 @@ module.exports = class OplogStream {
      * @param {object} filter 
      * @param {boolean} stream 
      */
-    _createStream(oplog, filter, stream=true){
+    _createStream(oplog, filter, tailable=true){
       var cursor = oplog.find(filter, {
-        tailable: stream,
-        awaitdata: stream,
+        tailable: tailable,
+        awaitdata: tailable,
         oplogReplay: true,
         numberOfRetries: -1
       })
       var stream = cursor.stream()
       var destroy = stream.destroy
       stream.destroy = function () {
+        console.log('calling destroy');
         cursor.close()
         destroy.call(stream)
-        db.close()
+        //db.close()
       }
 
       return stream;

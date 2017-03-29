@@ -3,20 +3,24 @@ MongoDB oplog stream wrapper
 
 ## Installation
 ```
-  npm install veyron-oplog-stream
+  npm install oplog-stream
 ```
 
 ## Usage
 ```js
-  var oplog = new OplogStream('mongodb://192.168.1.1/local');
-  oplog.firstSync((stream) => {
+  var oplog = require('oplog-stream')
+  
+  oplog(function (err, stream) {
+    if (err) {
+      throw err
+    }
     stream.on('data', function (data) {
-      console.log(data);
-    });
-    stream.on('error', function (err) {
-      throw err;
-    });
-  });
+      console.log(data)
+    })
+    stream.on('error', function () {
+      throw err
+    })
+  })
 ```
 
 ## Destroying stream

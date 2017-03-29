@@ -1,24 +1,89 @@
 {
-  "name": "veyron-oplog-stream",
-  "version": "1.0.1",
+  "_args": [
+    [
+      {
+        "raw": "veyron-oplog-stream",
+        "scope": null,
+        "escapedName": "veyron-oplog-stream",
+        "name": "veyron-oplog-stream",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/veyron/Work/ResearchAndDev/strapi-test"
+    ]
+  ],
+  "_from": "veyron-oplog-stream@latest",
+  "_id": "veyron-oplog-stream@1.0.0",
+  "_inCache": true,
+  "_location": "/veyron-oplog-stream",
+  "_nodeVersion": "7.4.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/veyron-oplog-stream-1.0.0.tgz_1488467840187_0.36406152159906924"
+  },
+  "_npmUser": {
+    "name": "v3yr0n",
+    "email": "ntmveyron@gmail.com"
+  },
+  "_npmVersion": "4.2.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "veyron-oplog-stream",
+    "scope": null,
+    "escapedName": "veyron-oplog-stream",
+    "name": "veyron-oplog-stream",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/veyron-oplog-stream/-/veyron-oplog-stream-1.0.0.tgz",
+  "_shasum": "fa12f0e51f83c47cc82692f103bb6938b758a549",
+  "_shrinkwrap": null,
+  "_spec": "veyron-oplog-stream",
+  "_where": "/Users/veyron/Work/ResearchAndDev/strapi-test",
+  "author": {
+    "name": "v3yr0n"
+  },
+  "bugs": {
+    "url": "https://github.com/v3yr0n/oplog-stream/issues"
+  },
+  "dependencies": {},
   "description": "MongoDB oplog stream wrapper to be used as a starting point for a sync system",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "fa12f0e51f83c47cc82692f103bb6938b758a549",
+    "tarball": "https://registry.npmjs.org/veyron-oplog-stream/-/veyron-oplog-stream-1.0.0.tgz"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/v3yr0n/oplog-stream.git"
-  },
+  "gitHead": "c535f61b465f867269c54195b91f35c64c9896e3",
+  "homepage": "https://github.com/v3yr0n/oplog-stream#readme",
   "keywords": [
     "oplog",
     "oplog-stream",
     "mongodb"
   ],
-  "author": "v3yr0n",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/v3yr0n/oplog-stream/issues"
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "v3yr0n",
+      "email": "ntmveyron@gmail.com"
+    }
+  ],
+  "name": "veyron-oplog-stream",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/v3yr0n/oplog-stream.git"
   },
-  "homepage": "https://github.com/v3yr0n/oplog-stream#readme"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
 }
