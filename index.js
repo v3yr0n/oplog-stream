@@ -25,7 +25,7 @@ module.exports = class OplogStream {
             })
         });
     }
-
+    
     /** Gets all documents from the oplog based on the optional filter 
      * @param {function} callback to be called after quering the oplog
      * @param {object} filter to used in the oplog query
@@ -80,8 +80,11 @@ module.exports = class OplogStream {
         var timestamp = MongoDB.Timestamp.fromString(since)
         console.log("syncing since:", timestamp);
         var allFilters = Object.assign(filter, {ts: {$gt: timestamp}});
-        let stream = this._createStream(oplog, allFilters);
-        callback(stream)
+        var self = this;
+        var count = oplog.count(allFilters, function(err, count){
+          let stream = self._createStream(oplog, allFilters);
+          callback(stream, count)
+        });
       });
     }
 
@@ -127,9 +130,9 @@ module.exports = class OplogStream {
       var stream = cursor.stream()
       var destroy = stream.destroy
       stream.destroy = function () {
-        console.log('calling destroy');
-        cursor.close()
-        destroy.call(stream)
+        console.log('stream destroy called');
+        //cursor.close()
+        //destroy.call(stream)
         //db.close()
       }
 
